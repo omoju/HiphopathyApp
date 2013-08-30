@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Search{% endblock %}
+
+{% block navbar %}
+    <li><a href="/hiphopathy/">Home</a></li>
+    <li><a href="/hiphopathy/tutorial_1/">How To</a></li>
+    <li><a href="/hiphopathy/about/">About</a></li>
+    <li class="active"><a href="/hiphopathy/search_form/">Search</a></li>
+    <li><a href="/hiphopathy/contact/">Contact</a></li>
+{% endblock %}
+
+ {% block header %}Search{% endblock %}
+
+
+ {% block divider2 %}{% endblock %}
+{% block marketing %}
+
+    <form action="/hiphopathy/search/" method="get">
+        <input type="text" name="q">
+        <br>
+        <input type="submit" value="Search">
+    </form>
+
+    <p>
+		<strong>Note:</strong> The search function only works on Song ID numbers at the moment.
+	</p>
+{% endblock %}

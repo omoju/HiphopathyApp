@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block title %}Hiphopathy: Example{% endblock %}
+
+
+{% block navbar %}
+<li><a href="/hiphopathy/">Home</a></li>
+<li class="active"><a href="/hiphopathy/tutorial_1/">How To</a></li>
+<li><a href="/hiphopathy/about/">About</a></li>
+<li><a href="/hiphopathy/search_form/">Search</a></li>
+<li><a href="/hiphopathy/contact/">Contact</a></li>
+{% endblock %}
+
+{% block header %} Tutorial {% endblock %}
+{% block divider2 %}{% endblock %}
+
+{%block jumbotron%}
+    <div>
+
+            <p>
+            <h1>Goal:</h1>
+            <h3>In this Module you will learn what an algorithm is and a heuristic. </h3>
+            </p>
+    </div>
+{% endblock %}
+
+{% block marketing %}
+        <div class="bs-docs-social">
+        <p>
+            Lets us first understand what it means to decode a sentence.
+        </p>
+        </div>
+
+        <div class="bs-docs-definition">
+            <p>
+                <blockquote>  Decoding means to translate from a code into the original language or form.  </blockquote>
+            </p>
+        </div>
+
+        <p>
+            For our purposes, decoding can be better understood as learning to translate from the literal understanding to the intended
+            meaning of the rap poet. We will do this by understanding the context of the songs, learning to identify novel metaphors,
+            and developing a process that we can use to get at richer meaning.
+        </p>
+
+        <p>
+            Through our decoding of rap lyrics, what we will be doing is coming up with a set of general all-purpose instructions that we
+            can follow, which will lead us in our translation of rap lyrics from their <em>literal</em> understanding to <em>intended</em>
+            understanding. In computational thinking, this process is called the generation of an <bold>"algorithm"</bold>.
+
+
+        </p>
+
+        <p>Now, lets us make our first attempt at decoding a rap lyric. Before we can do that we need to break the process down into sub components.
+        In computational thinking, this process is called problem decomposition.</p>
+
+        <div class="bs-docs-definition">
+        <p>
+        Some Key words
+            <dl class="dl-horizontal">
+                <dt>Algorithm</dt>
+                <dd>A process or set of rules to be followed in calculations or other problem-solving operations.</dd>
+                <dt>Heuristic</dt>
+                <dd>A technique designed for solving a problem more quickly when classic methods are too slow, or for finding
+                    an approximate solution when classic methods fail to find any exact solution</dd>
+                <dt>Abstraction process</dt>
+                <dd>Deciding what details we need to highlight and what details we can ignore</dd>
+                <dt>Decomposition</dt>
+                <dd>A process by which a complex problem or system is broken down into parts that are easier to conceive and
+                    understand</dd>
+                <dt>Conceptual Metaphor</dt>
+                <dd>When one concept is understood in terms of another. <br>
+                (1) How can I <em>kill</em> a process? <br>Here we use the language of killing to reason about a process. This is part of a
+                    class of metaphor that attributes anthropomorphic qualities on abstract entities. <br>
+                (2) Damn, that money we gave was just a <em>Band-Aid</em>.<br>
+                    Here we use the language of healing a wound to reason about a societal problem. This is a JayZ lyric talking about
+                aid after hurricane katrina. We could name this metaphor SocietalProblemIsPhysicalInjury metaphor. </dd>
+            </dl>
+        </p>
+        </div>
+
+
+
+
+
+<a href="/hiphopathy/tutorial_2/" class="btn btn-primary">Next</a>
+
+
+{% endblock %}
+
+

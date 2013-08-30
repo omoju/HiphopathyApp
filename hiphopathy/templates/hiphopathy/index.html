@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+
+{% block title %}Hiphopathy: A computational thinking process{% endblock %}
+
+{% block navbar %}
+<li class="active"><a href="/hiphopathy/">Home</a></li>
+<li><a href="/hiphopathy/tutorial_1/">How To</a></li>
+<li><a href="/hiphopathy/about/">About</a></li>
+<li><a href="/hiphopathy/search_form/">Search</a></li>
+<li><a href="/hiphopathy/contact/">Contact</a></li>
+{% endblock %}
+
+{% block header %}Welcome!{% endblock %}
+
+{% block jumbotron %}
+  <h1>Hiphopathy</h1>
+  <h3>A Computational Thinking Process</h3>
+{% endblock %}
+
+{% block divider2 %}
+
+{% endblock %}
+
+
+{% block marketing %}
+
+ <p class="lead text-left">A tool that gives you the opportunity to test how much you are able to understand the cultural milieu
+      of another person by paying careful attention to language and the cultural frames they evoke, with the goal of
+      maintaining thematic coherence.
+  </p>
+
+<p class="lead text-left">The goal of our project is to teach you how to decode rap lyrics. In the case of this project, we are going
+    to help you understand the cultural milieu of of our favorite rapper <a href="#" data-toggle="tooltip" title="first tooltip">"Jay-Z"</a>. We are going to do this by teaching you a
+    computational thinking process for decoding rap lyrics, through the understanding of conceptual metaphors. We are excited
+    to bring together two things that we love: <em>rap music</em> and <em>computer science</em> understanding. Click on the button to get started
+</p>
+  <!-- <a class="btn btn-large btn-success" href="#">Jay-Z's lyrics!</a> -->
+  <div class="row-fluid">
+      <div class="btn-group">
+        <!--can have about 8 button for artists before it should switch to a new line or new form of showcasing-->
+        {% for artist in artist_list %}
+          <!-- <button class="btn"><a href="/hiphopathy/example_1/">{{ artist.artist }}</a></button>-->
+         {% empty %}
+           <p></p>
+         {% endfor %}
+       </div>
+   </div>
+
+ <button type="button" class="btn" data-toggle="modal"  data-show="true" data-target="#myModal">Lets get started</button>
+
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Some Foundational Concepts</h3>
+    </div>
+    <div class="modal-body">
+        <div class="container">
+            <div class="row">
+                <div class="tabbable span6">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#tabs1-pane1" data-toggle="tab">Computational Thinking</a></li>
+                        <li><a href="#tabs1-pane2" data-toggle="tab">Decoding Rap Lyrics</a></li>
+                        <li><a href="#tabs1-pane3" data-toggle="tab">Conceptual Metaphor</a></li>
+
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane well active" id="tabs1-pane1">
+                            <h4>Thinking like a Computer Scientist</h4>
+                            <blockquote class="pull-right">
+                                <p >
+                                Computational thinking (CT) is is taking an approach
+                                to solving problems, designing systems and understanding human behaviour that draws on concepts
+                                fundamental to computing. <small><cite title="Source Title">Jeanette Wing.</cite></small>
+                                </p>
+                            </blockquote>
+                               <p class="text-left"> It essence is abstraction. What you will learn with the help of the hiphopathy tool is understanding abstraction and
+                                computational thinking in context
+                            </p>
+                            <div class="progress progress-striped active">
+                                <div class="bar" style="width: 20%;"></div>
+                            </div>
+                        </div>
+                        <div class="tab-pane well active" id="tabs1-pane2">
+                            <h4>What have Rap lyrics got to do with CT?</h4>
+                            <p class="text-left"> One of the major goals of CT is to practice it in everyday context. For our purposes, we will use the decoding of rap
+                                lyrics to better understand the elements of computational thinking. Additionally, we shall see and learn the trips that these
+                                rap poets use to embed multiple meaning into their songs. </p>
+                            <div class="progress progress-striped active">
+                                <div class="bar" style="width: 60%;"></div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tabs1-pane3">
+                            <h4>Conceptual Metaphors</h4>
+                            <p class="text-left">One of the key competencies to develop when learning to think like a computer scientist is the development of rich abstractions.
+                                In the process of creating an abstraction, we have to decide what we need to highlight and what we can ignore. The conceptual metaphors
+                                in the rap lyrics will clue us in to the elements that we need to focus on.</p>
+                            <div class="progress progress-striped active">
+                                <div class="bar" style="width: 100%;"></div>
+                            </div>
+                        </div>
+                    </div><!-- /.tab-content -->
+                </div><!-- /.tabbable -->
+            </div><!-- /.row -->
+        </div> <!-- .container -->
+    </div>
+    <div class="modal-footer">
+        <a href="/hiphopathy/tutorial_1/" class="btn btn-primary">Continue</a>
+    </div>
+</div>
+
+{% endblock %}

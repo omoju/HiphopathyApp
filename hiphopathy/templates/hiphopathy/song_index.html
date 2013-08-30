@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}
+	{% for a in artist %}
+    	Hiphopathy: Songs by {{ a.artist }}
+    {% empty %}
+    	Hiphopathy: Songs
+	{% endfor %}
+{% endblock %}
+
+{% block jumbotron %}
+	<h1>
+		{% for a in artist %}
+	    	Songs by {{ a.artist }}
+    	{% empty %}
+    		Songs
+    	{% endfor %}
+	</h1>
+{% endblock %}
+
+{% block marketing %}
+	<div class="span6">
+		<h4>What now?</h4>
+		<p>
+			Click on one of the songs to reach a page with snippets of the lyrics.
+            Your job is to go through each snippet and write down what you think the metaphors are.
+            Remember to follow the algorithm we developed.
+            Don't be shy!
+		</p>
+
+        <table class="table table-condensed table-striped table-bordered">
+            <caption>Decoding Algorithm</caption>
+            <tbody>
+            <tr>
+                <td>1 </td>
+                <td>Read the sentence(s) thoroughly</td>
+            </tr>
+            <tr>
+                <td>2 </td><td> Identify metaphors (distinguish between literal and metaphorical language in text).</td>
+            </tr>
+            <tr>
+                <td>2</td> <td>Determine the context</td>
+            </tr>
+            <tr>
+                <td>3</td> <td>Make your first translation</td>
+            </tr>
+            <tr>
+                <td>2</td><td>Use the abstraction process to decide which words to focus on<br>
+                In our case, we will use an heuristic to focus our attention. Since one of the goals of
+                this project is understanding how we reason about conceptual metaphors, we will use knowledge of conceptual
+                metaphor research in natural language understanding to guide our solution<sup>1</sup>. In that field, they follow
+                the heuristic of focusing on noun and verb phrases, with particular attention to action verbs.<br>
+                <small class="pull-right">[1] E. Shutova. Models of Metaphor in NLP. Computational Linguistics, (July):688–697, 2010.</small>
+            </td>
+            </tr>
+            </tbody>
+        </table>
+	</div>
+
+	<div class="span6">
+		{% if song_list %}
+		    <ul class="nav nav-tabs nav-stacked">
+		    {% for song in song_list %}
+		        <li><a href="/hiphopathy/{{ song.songid }}/snippet_view/">{{ song.title }}</a></li>
+		    {% endfor %}
+		    </ul>
+		{% else %}
+		    <p>No songs in the database.</p>
+		{% endif %}
+	</div>
+{% endblock %}

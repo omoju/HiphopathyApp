@@ -1,0 +1,17 @@
+[
+    {"snippetid": 1, "user_answer": "words words words", "score": 0.4, "decoded": "words words words"},
+    {"snippetid": 2, "user_answer": "words words words", "score": 0.5, "decoded": "words words words"},
+    {"snippetid": 3, "user_answer": "words words words", "score": 0.8, "decoded": "words words words"},
+    {"snippetid": 4, "user_answer": "words words words", "score": 0.56, "decoded": "words words words"},
+    {"snippetid": 5, "user_answer": "words words words", "score": 0.66, "decoded": "words words words"},
+    {"snippetid": 6, "user_answer": "words words words", "score": 1, "decoded": "words words words"},
+    {"snippetid": 7, "user_answer": "words words words", "score": 0.8, "decoded": "words words words"},
+    {"snippetid": 8, "user_answer": "words words words", "score": 0.06, "decoded": "words words words"},
+    {"snippetid": 9, "user_answer": "words words words", "score": 0.9, "decoded": "words words words"},
+    {"snippetid": 10, "user_answer": "words words words", "score": 0.7, "decoded": "words words words"},
+    {"snippetid": 11, "user_answer": "words words words", "score":1, "decoded": "words words words"},
+    {"snippetid": 12, "user_answer": "words words words", "score": 0.48, "decoded": "words words words"},
+    {"snippetid": 13, "user_answer": "words words words", "score": 0.23, "decoded": "words words words"},
+    {"snippetid": 14, "user_answer": "words words words", "score": 1, "decoded": "words words words"},
+    {"snippetid": 22, "user_answer": "words words words", "score": 0.3, "decoded": "words words words"}
+]

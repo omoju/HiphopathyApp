@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+
+{% block title %}Hiphopathy: Example{% endblock %}
+
+
+{% block navbar %}
+<li><a href="/hiphopathy/">Home</a></li>
+<li class="active"><a href="/hiphopathy/tutorial_1/">How To</a></li>
+<li><a href="/hiphopathy/about/">About</a></li>
+<li><a href="/hiphopathy/search_form/">Search</a></li>
+<li><a href="/hiphopathy/contact/">Contact</a></li>
+{% endblock %}
+
+
+{% block header %} Tutorial {% endblock %}
+{% block divider2 %}{% endblock %}
+
+{%block jumbotron%}
+    <div>
+
+            <p>
+            <h1>Algorithm</h1>
+            </p>
+    </div>
+{% endblock %}
+
+{% block marketing %}
+
+
+<p>In order to solve a problem, a Computer Scientist has to figure out the series of steps that can be followed which will lead to
+    a solution. These series of steps is called an algorithm. Our first attempt at that process is coming up with a decoding algorithm.
+The table below is the results of our firs attempt.</p>
+<p>
+<table class="table table-condensed table-striped table-bordered">
+    <caption>Decoding Algorithm</caption>
+    <tbody>
+     <tr>
+        <td> Step </td>
+        <td> Instruction</td>
+    </tr>
+    <tr>
+        <td>1 </td>
+        <td>Read the sentence(s) thoroughly</td>
+    </tr>
+    <tr>
+        <td>2 </td>
+        <td> Determine the context, if not given to you</td>
+
+    </tr>
+    <tr>
+        <td>3</td>
+        <td> Identify metaphors (distinguish between literal and metaphorical language in text). <br>
+
+           <table class="table table-condensed table-striped table-bordered">
+            <tbody>
+            <tr>
+                <td>
+                    Use the abstraction process to decide which words to focus on
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    In our case, we will use an heuristic to focus our attention. Since one of the goals of
+        this project is understanding how we reason about conceptual metaphors, we will use knowledge of conceptual
+        metaphor research in natural language understanding to guide our solution<sup>1</sup>. In that field, they follow
+        the heuristic of focusing on noun and verb phrases, with particular attention to action verbs.<br>
+        <small class="pull-right">[1] E. Shutova. Models of Metaphor in NLP. Computational Linguistics, (July):688–697, 2010.</small>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        </td>
+    </tr>
+    <tr>
+        <td>4</td> <td>Try to identify the concepts that you think are involved in understanding the sentence.</td>
+    </tr>
+
+    </tbody>
+</table>
+</p>
+<div class="bs-docs-example">
+    <p>We need a place to
+        <a href="#" id="focus1"
+           class="label label-info"
+           rel="popover"
+           data-placement="top"
+           data-original-title="Abstraction, focus on the action verb">pitch</a>
+        we need a <a href="#" id="focus2"
+                     class="label label-info"
+                     rel="popover"
+                     data-placement="top"
+                     data-animantion="true"
+                     data-original-title="Abstraction, focus on the noun">mound.</a>
+
+        <div class="control-group">
+            <label class="control-label"> Concepts:</label>
+            <input id="id_user_answer" type="text" name="user_answer" value=" baseball, business " maxlength="765" />
+        </div>
+        <br>
+        <div class="control-group">
+            <div class="controls">
+              <button type="submit" class="btn">Submit</button>
+            </div>
+        </div>
+    </p>
+</div>
+<pre class="prettyprint"></pre>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="/twitter-bootstrap/twitter-bootstrap-v2/js/bootstrap-tooltip.js"></script>
+<script src="/twitter-bootstrap/twitter-bootstrap-v2/js/bootstrap-popover.js"></script>
+<script>
+    $(function ()
+    { $("#focus1").tooltip();
+    });
+    $(function ()
+    { $("#focus2").tooltip();
+    });
+</script>
+
+
+
+<a href="/hiphopathy/1/manage_snippets" class="btn btn-primary"> 1 snippet</a>
+<a href="/hiphopathy/2/manage_snippets" class="btn btn-primary"> 2 snippet</a>
+<a href="/hiphopathy/3/manage_snippets" class="btn btn-primary"> 3 snippet</a>
+<a href="/hiphopathy/4/manage_snippets" class="btn btn-primary"> 4 snippet</a>
+<a href="/hiphopathy/visual_score/" class="btn btn-primary"> Visualize Score</a>
+{% endblock %}
+
+

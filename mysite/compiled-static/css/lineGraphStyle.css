@@ -1,0 +1,46 @@
+body {
+	font: 10px sans-serif;
+}
+
+h1 {
+	font-size: 20px;
+	font-family: Helvetica, Arial;
+}
+
+.axis path,
+.axis line {
+	fill: none;
+	stroke: #000;
+	shape-rendering: crispEdges;
+}
+
+.x.axis path {
+	display: none;
+}
+
+.line {
+	/*fill: none;*/
+	fill: #000;
+	stroke: #009900; /*808080*/
+  	stroke-width: 0px; /*1.5px*/
+}	
+
+.line2 {
+  	fill: none;
+  	stroke: #009900; /*808080*/
+  	stroke-width: 3px; /*1.5px*/
+}	
+
+.lineJayZ {
+  	fill: none;
+  	stroke: #FF0000;
+  	stroke-width: 3px;
+}
+
+.dot{
+	stroke: none;
+}
+
+.dotJayZ{
+	stroke: none;
+}

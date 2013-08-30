@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Hiphopathy: Contact{% endblock %}
+
+{% block navbar %}
+<li><a href="/hiphopathy/">Home</a></li>
+<li><a href="/hiphopathy/tutorial_1/">How To</a></li>
+<li><a href="/hiphopathy/about/">About</a></li>
+<li><a href="/hiphopathy/search_form/">Search</a></li>
+<li><a href="/hiphopathy/contact/">Contact</a></li>
+{% endblock %}
+
+
+{% block header %}Contact{% endblock %}
+
+
+
+ {% block divider2 %}{% endblock %}
+{% block marketing %}
+
+<form method='post' action='.'>{% csrf_token %}
+    <!-- display the form fields -->
+    {{ form.as_p }}
+
+    <!-- submit button -->
+    <input type='submit'>
+</form>
+
+{% endblock %}

@@ -1,0 +1,101 @@
+ {% extends "base.html" %}
+
+{% block title %}Hiphopathy: Snippets{% endblock %}
+
+{% block navbar %}
+<li><a href="/hiphopathy/">Home</a></li>
+<li><a href="/hiphopathy/tutorial_1/">How To</a></li>
+<li><a href="/hiphopathy/about/">About</a></li>
+<li><a href="/hiphopathy/search_form/">Search</a></li>
+<li><a href="/hiphopathy/contact/">Contact</a></li>
+{% endblock %}
+
+
+{% block divider2 %}{% endblock %}
+{% block jumbotron %}
+<h2>Snippets to decode</h2>
+
+{% endblock %}
+
+{% block marketing %}
+
+
+
+<h4>Song = American Dreaming <br>
+    Context = About the narcotic business in Harlem, New York circa 1980
+</h4>
+
+<div class="mini-layout fluid">
+    <div class="row-fluid">
+        <div class="mini-layout-sidebar">
+        <!--Sidebar content-->
+            <table class="table table-condensed table-striped table-bordered">
+    <caption>Decoding Algorithm</caption>
+    <tbody>
+     <tr>
+        <td> Step </td>
+        <td> Instruction</td>
+    </tr>
+    <tr>
+        <td>1 </td>
+        <td>Read the sentence(s) thoroughly</td>
+    </tr>
+    <tr>
+        <td>2 </td>
+        <td> Determine the context, if not given to you</td>
+
+    </tr>
+    <tr>
+        <td>3</td>
+        <td> Identify linguistic metaphor (distinguish between literal and metaphorical language in text). <br>
+
+           <table class="table table-condensed table-striped table-bordered">
+            <tbody>
+            <tr>
+                <td>
+                    Use the abstraction process to decide which words to focus on
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    In our case, we will use an heuristic to focus our attention. Since one of the goals of
+        this project is understanding how we reason about conceptual metaphors, we will use knowledge of conceptual
+        metaphor research in natural language understanding to guide our solution<sup>1</sup>. In that field, they follow
+        the heuristic of focusing on noun and verb phrases, with particular attention to action verbs.<br>
+        <small class="pull-right">[1] E. Shutova. Models of Metaphor in NLP. Computational Linguistics, (July):688–697, 2010.</small>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        </td>
+    </tr>
+    <tr>
+        <td>4</td> <td>Try to identify the concepts that you think are involved in understanding the sentence.</td>
+    </tr>
+
+    </tbody>
+</table>
+        </div>
+        <div class="mini-layout-body">
+        <!--Body content-->
+            <form class="form-horizontal" method="post" action=".">{% csrf_token %}
+            {% for field in form %}
+            <div class="control-group">
+                <label class="control-label">{{field.label}} :</label>
+                <div class="controls">
+                  {{field}}
+                </div><br>
+            </div>
+            {% endfor %}
+            <br>
+             <div class="control-group">
+                <div class="controls">
+                  <button type="submit" class="btn">Submit</button>
+                </div>
+            </div>
+            </form> <!-- {{ form.as_p }}   -->
+        </div>
+    </div>
+</div>
+{% endblock %}

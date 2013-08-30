@@ -1,0 +1,206 @@
+{% extends "base.html" %}
+
+{% block title %} User vs Jay-Z  {% endblock %}
+
+          {% block navbar %}
+          <li><a href="/hiphopathy">Home</a></li>
+          <li><a href="/hiphopathy/tutorial_1/">How To</a></li>
+          <li><a href="/hiphopathy/about/">About</a></li>
+          <li><a href="/hiphopathy/search_form/">Search</a></li>
+          <li><a href="/hiphopathy/contact/">Contact</a></li>
+          {% endblock %}
+
+{% block header %} Results {% endblock %}
+{% block divider2 %}{% endblock %}
+
+{%block jumbotron%}
+    <div>
+
+            <p>
+            <h1>Results</h1>
+            </p>
+    </div>
+{% endblock %}
+
+
+        {% block marketing %}
+
+          <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+          <script type="text/javascript">
+          var mydataset = [
+              {"snippetid": 1, "user_answer": "pot, weed, hallucinations, fantasy, goals, society, acquaintance",
+                  "score": 1, "decoded": "goals"},
+              {"snippetid": 2, "user_answer": "car, retrospect, alliteration, regret",
+                  "score": 0.8, "decoded": "car, materialism, good, bad"},
+              {"snippetid": 3, "user_answer": "money, smoothness, chaos, norm, deviation",
+                  "score": 0.1, "decoded": "education"},
+              {"snippetid": 4, "user_answer": "home, private, nondescript, average, lifestyle, clarity",
+                  "score": 0.56, "decoded": "urgency"}];
+
+
+          var margin = {top: 50, right: 20, bottom: 30, left: 50},
+                width = 700 - margin.left - margin.right, //960, 560
+                height = 360 - margin.top - margin.bottom; //500, 300
+
+          function drawline(lineGraphData, selectString) {
+            var data = lineGraphData;
+
+            var x = d3.scale.linear()
+                  .domain(d3.extent(data, function(d) { return d.snippetid; }))
+                      .range([0, width]);
+
+            var y = d3.scale.linear()
+                  .domain([d3.min(data, function(d) { return d.score; }), 1])
+                  .range([height, 0]);
+
+            var xAxis = d3.svg.axis()
+                    .scale(x)
+                    .tickSubdivide(1)
+                    .orient("bottom");
+
+            var yAxis = d3.svg.axis()
+                    .scale(y)
+                    .orient("left");
+
+            var line = d3.svg.area()
+                  .x(function(d) { return x(d.snippetid); })
+                  .y0(height)
+                  .y1(function(d) {
+                    if(d.score > .97)
+                      { return y(d.score-.03); }
+                    else
+                      { return y(d.score); }
+                  })
+                  .interpolate("cardinal"); //cardinal
+
+            var line2 = d3.svg.line()
+                  .x(function(d) { return x(d.snippetid); })
+                  .y(function(d) {
+                    if(d.score > .97)
+                      { return y(d.score-.03); }
+                    else
+                      { return y(d.score); }
+                  })
+                  .interpolate("cardinal"); //cardinal
+
+            var lineJayZ = d3.svg.line()
+                  .x(function(d) { return x(d.snippetid); })
+                  .y(1)
+                  .interpolate("basis");
+
+            //var svg = d3.select("body").append("svg")
+            var svg = d3.select(selectString).append("svg")
+                    .attr("width", width + margin.left + margin.right)
+                    .attr("height", height + margin.top + margin.bottom)
+                  .append("g")
+                    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+            svg.append("g")
+                .attr("class", "x axis")
+                .attr("transform", "translate(0," + height + ")")
+                .call(xAxis);
+
+            svg.append("g")
+                  .attr("class", "y axis")
+                  .call(yAxis)
+                .append("text")
+                  .attr("transform", "rotate(-90)")
+                  .attr("y", 6)
+                  .attr("dy", ".71em")
+                  .style("text-anchor", "end")
+                  .text("Score vs Jay-Z   .");
+
+            svg.append("path")
+                .datum(data)
+                .attr("class", "line2")
+                .attr("d", line2)
+                .style("stroke", "url(#gradient)");
+
+            var gradient = svg
+                .append("svg:linearGradient")
+                .attr("x1", "0%")
+                .attr("y1", "0%")
+                .attr("x2", "0%")
+                .attr("y2", "100%")
+                .attr("id", "gradient")
+                .attr("gradientUnits", "userSpaceOnUse");
+
+            gradient
+                .append("svg:stop")
+                .attr("offset", "0")
+                .attr("stop-color", "#009900"); //f00
+
+            gradient
+                .append("svg:stop")
+                .attr("offset", "0.9")
+                .attr("stop-color", "#fff"); //ff0
+
+            svg.append("path")
+              .datum(data)
+              .attr("class", "lineJayZ")
+              .attr("d", lineJayZ);
+
+            svg.selectAll(".dot")
+              .data(data)
+              .enter().append("circle")
+              .attr("class", "dot")
+              .attr("r", 3)
+              .attr("cx", function(d) { return x(d.snippetid); })
+              .attr("cy", function(d) {
+                if(d.score > .97)
+                  { return y(d.score-.03); }
+                else
+                  { return y(d.score); }
+              })
+              .style("fill", "url(#gradient)")
+              //.style("opacity", function(d) { return 1-(1-d.score); })
+              .on("mouseover", function(d){
+                  d3.select(this).attr('r', 7);
+                          //.style("stroke", "#000");
+                })
+                .on("mouseout", function(d){
+                  d3.select(this).attr('r', 3);
+                          //.style("stroke", "#009900");
+                })
+                .append("title")
+                .text(function(d) {
+                return "Song Snippet ID: " + d.snippetid + "\n" + "Score: " + d.score + "\n" + "Your thoughts: " + d.user_answer;
+                });
+
+            svg.selectAll(".dotJayZ")
+              .data(data)
+              .enter().append("circle")
+              .attr("class", "dotJayZ")
+              .attr("r", 3)
+              .attr("cx", function(d) { return x(d.snippetid); })
+              .attr("cy", 1)
+              .style("fill", "#FF0000")
+              .on("mouseover", function(d){
+                  d3.select(this).attr('r', 7);
+                          //.style("stroke", "#000");
+                })
+                .on("mouseout", function(d){
+                  d3.select(this).attr('r', 3);
+                          //.style("stroke", "#FF0000");
+                })
+                .append("title")
+                .text(function(d) {
+                return "Song Snippet ID: " + d.snippetid + "\n" + "Jay-Z's thoughts: " + d.decoded
+                              + "\n" + "Yours: " + d.user_answer;
+                });
+          }
+          </script>
+
+
+        <div class="" id="line_graph_1">
+              <div class="chart"></div>
+        </div>
+
+        <a href="/hiphopathy/tutorial_2/" class="btn btn-primary">Return</a >
+
+        <script type="text/javascript">
+                 drawline(mydataset, "#line_graph_1 .chart");
+        </script>
+
+      {% endblock %}
+

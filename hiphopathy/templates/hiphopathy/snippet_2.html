@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}
+{% for s in song %}
+Hiphopathy: Snippets from '{{ s.title }}'
+{% empty %}
+Hiphopathy: Snippets
+{% endfor %}
+{% endblock %}
+
+{% block jumbotron %}
+<h1>Snippets</h1>
+<h2>
+    {% if song %}
+    {% for s in song %}
+    {{ s.title }}
+    {% endfor %}
+    {% endif %}
+</h2>
+{% endblock %}
+
+{% block marketing %}
+
+
+{% if chunk_list %}
+{% for chunk in chunk_list %}
+{% if chunk.snippetid > 4 %}
+{{ chunk }} <br />
+<input type="text" name="user_supplied_answer_1"  value="{{chunk.user_answer}}" width=500 /><br/>
+<!---value="{{snippet.answer}}"-->
+{% endif %}
+{% endfor %}
+
+<a href="#" class="btn btn-primary"> Submit </a><br>
+<p>  </p>
+
+
+{% else %}
+<p>No chunks in the database for this song.</p>
+{% endif %}
+
+{% if artist %}
+<div class="btn-group">
+    <button class="btn"><a href="/hiphopathy/{{ artist.artistid }}/song_view/"><i class="icon-arrow-left"></i> Back to {{ artist.artist }}</a></button>
+</div>
+{% endif %}
+{% endblock %}
+
