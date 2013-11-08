@@ -86,6 +86,7 @@ STATICFILES_FINDERS = (
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
+
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '!ao+r86(hs5oqmfbt^8qhxngc!%5&amp;u6dk@hru*kmtzc9h+t6f('
 
@@ -117,7 +118,7 @@ TEMPLATE_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     #'/Users/omojumiller/Desktop/Hiphopathy_Extended/hiphopathy/hiphopathy',
-    '/Users/omojumiller/mycode/Hiphopathy_Extended/LearningApp/hiphopathy',
+    '/Users/omojumiller/mycode/HiphopathyApp/hiphopathy/templates/hiphopathy',
 )
 
 INSTALLED_APPS = (

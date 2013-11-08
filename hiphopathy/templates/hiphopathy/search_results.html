@@ -1,27 +1,27 @@
 {% extends "base.html" %}
 
-{% block title %}Hiphopathy: Results{% endblock %}
+{% block title %}Search{% endblock %}
 
 {% block navbar %}
-<li><a href="/hiphopathy/">Home</a></li>
-<li><a href="/hiphopathy/tutorial_1/">How To</a></li>
-<li><a href="/hiphopathy/about/">About</a></li>
-<li class="active"><a href="/hiphopathy/search_form/">Search</a></li>
-<li><a href="/hiphopathy/contact/">Contact</a></li>
+    <li><a href="/hiphopathy/">Home</a></li>
+    <li class=""><a href="/hiphopathy/tutorial_1/">How To</a></li>
+    <li><a href="/hiphopathy/code/">Code</a></li>
+    <li><a href="/hiphopathy/about/">About</a></li>
+    <li class="active"><a href="/hiphopathy/search_form/">Search</a></li>
+    <li><a href="/hiphopathy/contact/">Contact</a></li>
 {% endblock %}
 
-{% block jumbotron %}
-<h2>Snippets</h2>
-{% endblock %}
+ {% block header %}Search{% endblock %}
+
 
 {% block marketing %}
-    <p>You searched for: <strong>{{ query }}</strong></p>
+<p>You searched for: <strong>{{ query }}</strong></p>
 
 	{% if snippet_list %}
     <p>Found {{ snippet_list|length }} snippet{{ snippet_list|pluralize }}.</p>
     <ul>
         {% for snippet in snippet_list %}
-        <li>{{ snippet.chunk }}</li>
+        <li>{{ snippet.snippet }}</li>
         {% endfor %}
     </ul>
 	{% else %}

@@ -1,0 +1,152 @@
+<html>
+
+
+ <head>
+    <title>Hiphopathy - Code</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="{{ STATIC_URL }}bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}bootstrap/css/docs.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}Scripts/dist/skulpt.min.js" type="text/javascript"></script> 
+    <script src="{{ STATIC_URL }}Scripts/dist/skulpt-stdlib.js" type="text/javascript"></script>
+    <!---
+     <link href="{{ STATIC_URL }}css/codemirror.css" rel="stylesheet" type="text/css" media="all" >
+    <link href="{{ STATIC_URL }}css/solarized.css" rel="stylesheet" type="text/css" media="all" >
+    -->
+    <script src="{{ STATIC_URL }}Scripts/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+
+
+<body>
+
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+          <a class="brand" href="/hiphopathy/">Build Something</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class=""><a href="/hiphopathy/">Home</a></li>
+              <li class=""><a href="/hiphopathy/tutorial_1/">How To</a></li>
+              <li class="active"><a href="/hiphopathy/code/">Code</a></li>
+              <li class=""><a href="/hiphopathy/about/">About</a></li>
+              <li class=""><a href="/hiphopathy/search_form/">Search</a></li>
+              <li class=""><a href="/hiphopathy/contact/">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+ </div>
+
+ <div class="jumbotron">
+     <img src="{{ STATIC_URL }}Media/transparent.gif" /> <br>
+ </div>
+
+
+
+
+ <img src="{{ STATIC_URL }}Media/transparent.gif" /> <br><br>
+ <img src="{{ STATIC_URL }}Media/transparent.gif" /> <br><br>
+<script type="text/javascript">
+
+// There is decent documentation at the following site: http://reputablejournal.com/post/14021555501/adding-a-module-to-skulpt
+// output functions are configurable.  This one just appends some text
+// to a pre element.
+function outf(text) {
+    var mypre = document.getElementById("output");
+    mypre.innerHTML = mypre.innerHTML + text;
+}
+function builtinRead(x) {
+    if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
+            throw "File not found: '" + x + "'";
+    return Sk.builtinFiles["files"][x];
+}
+
+// This is for the ace editor
+    window.onload = function() {
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/monokai");
+    editor.getSession().setMode("ace/mode/python");
+    };
+
+// Here's everything you need to run a python program in skulpt
+// grab the code from your textarea
+// get a reference to your pre element for output
+// configure the output function
+// call Sk.importMainWithBody()
+function runit() {
+  // var prog = document.getElementById("yourcode").value;
+   var prog = document.getElementById("editor").env.document.getValue()
+
+   var mypre = document.getElementById("output");
+   mypre.innerHTML = '';
+   Sk.canvas = "mycanvas";
+   Sk.pre = "output";
+   Sk.configure({output:outf, read:builtinRead});
+
+   try{
+    Sk.importMainWithBody("<stdin>",false,prog);
+   } catch(e) { 
+    alert(e);
+  }
+   
+}
+
+//eval(Sk.importMainWithBody("<stdin>",false,prog));
+
+
+</script>
+<div class="span7">
+<h3>Try This</h3>
+</div>
+
+
+<div class="span5">
+<form>
+    <button type="button" class="btn btn-info" onclick="runit()">Run</button>
+</form>
+<pre id="output" ></pre>
+<!-- If you want turtle graphics include a canvas -->
+<canvas id="mycanvas" height="200" width="400"></mycanvas>
+</div>
+
+<div id="editor">
+import turtle
+def drawSquare(t, sz):
+    """Make turtle t draw a square of with side sz."""
+
+    for i in range(4):
+        t.forward(sz)
+        t.left(90)
+
+t = turtle.Turtle()
+
+for c in ['blue', 'red', 'black', 'green', 'red']:
+    t.color(c)
+    t.forward(60)
+    t.left(72)
+
+t.color('blue') # change the color of the pen
+t.circle(40) # draw a circle of radius 40
+
+t.shape('turtle')
+t.right(23)
+t.color('black')
+drawSquare(t, 100)
+
+</div>
+
+
+
+</body>
+</html>

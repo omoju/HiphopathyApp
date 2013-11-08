@@ -4,9 +4,9 @@
     <title>{% block title %}Hiphopathy{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
-    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
-    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
-    <link href="http://twitter.github.com/bootstrap/assets/css/docs.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}bootstrap/css/docs.css" rel="stylesheet">
     <link href="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
 
 <style type="text/css">
@@ -220,7 +220,7 @@ html, body {
 }
 
     </style>
-    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
   </head>
   <body>
 
@@ -250,6 +250,9 @@ html, body {
               <li class="">
                   <a href="/hiphopathy/tutorial_1/">Get Started</a>
               </li>
+                <li class="">
+                  <a href="/hiphopathy/code/">Code</a>
+              </li>
               <li class="">
                 <a href="/hiphopathy/about/">About</a>
               </li>
@@ -265,6 +268,8 @@ html, body {
       </div>
     </div>
 
+  <img src="{{ STATIC_URL }}Media/transparent.gif" /> <br> <br>
+  <img src="{{ STATIC_URL }}Media/transparent.gif" /> <br> <br>
 
      <div class="jumbotron">
         {% block jumbotron %}{% endblock %}
@@ -306,20 +311,9 @@ html, body {
 
     <!-- // <script src="http://code.jquery.com/jquery.js"></script> -->
     <!-- // <script src="C:/hipopathy/hiphopathy//bootstrap/js/bootstrap.min.js"></script> -->
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="{{ STATIC_URL }}bootstrap/js/bootstrap.min.js"></script>
 
-    <script src="http://twitter.github.com/bootstrap/assets/js/jquery.js"></script>
-    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-transition.js"></script>
-    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-alert.js"></script>
-    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-modal.js"></script>
-    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-dropdown.js"></script>
-    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-scrollspy.js"></script>
-    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-tab.js"></script>
-    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-tooltip.js"></script>
-    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-popover.js"></script>
-    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-button.js"></script>
-    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-collapse.js"></script>
-    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-carousel.js"></script>
-    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-typeahead.js"></script>
   </body>
 </html>
 
