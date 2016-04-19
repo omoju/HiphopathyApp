@@ -1,4 +1,4 @@
-Hiphopathy
+## HiphopathyApp
 
 A research project that aims to understand the art and science of creating and interpreting rap lyrics through the use of conceptual metaphors. 
 
