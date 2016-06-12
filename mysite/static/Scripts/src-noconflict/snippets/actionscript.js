@@ -136,7 +136,7 @@ snippet fun\n\
 	{\n\
 		${4:/* code */}\n\
 	}\n\
-# FlxSprite (usefull when using the flixel library)\n\
+# FlxSprite (useful when using the flixel library)\n\
 snippet FlxSprite\n\
 	package\n\
 	{\n\
