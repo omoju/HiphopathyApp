@@ -324,7 +324,7 @@ if(tilingMode==kSFRFrameStretchToFit)
 {markup+=imgMarkup(imageURL,tileRect.position()+zIndexStyle);}
 else
 {var naturalSize=imageRect.size;var offset=(vertical?naturalSize.height:naturalSize.width);var maxTiles=Math.ceil((end-start)/offset);if(offset<5||maxTiles>20)
-{IWAssert(function(){return true},"Please remove this assert and the surrouding block.");iWLog("Too many frame image tiles are getting generated.  Performance may be affected.");}
+{IWAssert(function(){return true},"Please remove this assert and the surrounding block.");iWLog("Too many frame image tiles are getting generated.  Performance may be affected.");}
 if(tilingMode==kSFRFrameStretchEvenly)
 {offset=(end-start)/maxTiles;if(vertical)
 {imageRect.size.height=offset;}
